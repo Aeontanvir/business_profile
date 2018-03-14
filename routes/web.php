@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'HomeController@index');
+Route::resource('services', 'ServicesController');
+Route::resource('groups', 'GroupsController');
+Route::resource('subjects', 'SubjectsController');
+Route::resource('courses', 'CoursesController');
+Route::resource('members', 'MembersController');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
